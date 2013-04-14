@@ -1,0 +1,8 @@
+# ChangeLog for <CATEGORY>/<PACKAGE_NAME>
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*app-misc/myapp-1-r0 (27 Oct 2012)
+
+  27 Oct 2012; Sébastien canart <kokotchy@gmail.com> myapp-1.ebuild, ChangeLog, Manifest :
+  Initial import.

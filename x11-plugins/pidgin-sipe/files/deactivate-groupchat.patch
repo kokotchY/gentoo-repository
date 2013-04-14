@@ -1,0 +1,51 @@
+diff -r -u pidgin-sipe-1.12.0/src/core/sipe.c pidgin-sipe-1.12.0-modified/src/core/sipe.c
+--- pidgin-sipe-1.12.0/src/core/sipe.c	2011-08-29 08:05:26.000000000 +0200
++++ pidgin-sipe-1.12.0-modified/src/core/sipe.c	2012-02-14 10:24:26.000000000 +0100
+@@ -2620,7 +2620,7 @@
+ 	 */
+ 	if (!sip->initial_state_published) {
+ 		send_publish_category_initial(sipe_private);
+-		sipe_groupchat_init(sipe_private);
++		/*sipe_groupchat_init(sipe_private);*/
+ 		sip->initial_state_published = TRUE;
+ 		/* dalayed run */
+ 		sipe_schedule_seconds(sipe_private,
+diff -r -u pidgin-sipe-1.12.0/src/core/sipe-groupchat.c pidgin-sipe-1.12.0-modified/src/core/sipe-groupchat.c
+--- pidgin-sipe-1.12.0/src/core/sipe-groupchat.c	2011-08-29 08:05:26.000000000 +0200
++++ pidgin-sipe-1.12.0-modified/src/core/sipe-groupchat.c	2012-02-14 10:27:48.000000000 +0100
+@@ -288,11 +288,11 @@
+ }
+ 
+ /* sipe_schedule_action */
+-static void groupchat_init_retry_cb(struct sipe_core_private *sipe_private,
+-				    SIPE_UNUSED_PARAMETER gpointer data)
+-{
+-	sipe_groupchat_init(sipe_private);
+-}
++/*static void groupchat_init_retry_cb(struct sipe_core_private *sipe_private,*/
++				    /*SIPE_UNUSED_PARAMETER gpointer data)*/
++/*{*/
++	/*sipe_groupchat_init(sipe_private);*/
++/*}*/
+ 
+ static void groupchat_init_retry(struct sipe_core_private *sipe_private)
+ {
+@@ -303,12 +303,12 @@
+ 	groupchat->session = NULL;
+ 	groupchat->connected = FALSE;
+ 
+-	sipe_schedule_seconds(sipe_private,
+-			      "<+grouchat-retry>",
+-			      NULL,
+-			      GROUPCHAT_RETRY_TIMEOUT,
+-			      groupchat_init_retry_cb,
+-			      NULL);
++	/*sipe_schedule_seconds(sipe_private,*/
++			      /*"<+grouchat-retry>",*/
++			      /*NULL,*/
++			      /*GROUPCHAT_RETRY_TIMEOUT,*/
++			      /*groupchat_init_retry_cb,*/
++			      /*NULL);*/
+ }
+ 
+ void sipe_groupchat_invite_failed(struct sipe_core_private *sipe_private,

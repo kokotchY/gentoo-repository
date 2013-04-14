@@ -1,0 +1,16 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=eid-viewer (bin)
+Name[nl]=eid-viewer (bin)
+Name[fr]=eid-viewer (bin)
+GenericName=eid-viewer
+Comment=Display and administer your eID card
+Comment[nl]=Weergeven en beheren van uw eID kaart
+Comment[fr]=Affichage et gestion de votre carte eID
+Exec=/usr/bin/eid-viewer-bin
+Terminal=false
+MultipleArgs=false
+Type=Application
+Icon=/usr/share/pixmaps/eid-viewer.png
+Categories=Utility;Viewer;Java
+

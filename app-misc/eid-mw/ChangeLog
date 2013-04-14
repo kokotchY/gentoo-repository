@@ -1,0 +1,30 @@
+# ChangeLog for app-misc/eid-mw
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*eid-mw-4.0.0_p1135 (18-01-2012)
+
+  18-01-2012; Vincent Hardy <vincent.hardy.be@gmail.com>
+  xpi use flag works as expected : belgiumeid extension is installed into the right mozilla extensions directory.
+
+
+*eid-mw-4.0.0_p1120 (16-12-2011)
+
+  16-12-2011; Vincent Hardy <vincent.hardy.be@gmail.com>
+
+
+*eid-mw-4.0.0_p1079 (06-12-2011)
+
+  06-12-2011; Vincent Hardy <vincent.hardy.be@gmail.com>
+
+
+**eid-mw-4.0.0_p1032 (21-10-2011)
+
+  21-10-2011; Vincent Hardy <vincent.hardy.be@gmail.com>
+
+
+*eid-mw-4.0.0 (18-07-2011)
+
+  18-07-2011; Vincent Hardy <vincent.hardy.be@gmail.com>
+  First tarball release of eid-mw-4.0.0 formerly known as beid-runtime.
+
