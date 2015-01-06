@@ -1,0 +1,15 @@
+--- src/main.cpp.old	2015-01-06 11:11:47.342268799 +0100
++++ src/main.cpp	2015-01-06 11:11:54.903269007 +0100
+@@ -165,12 +165,6 @@
+ 
+     FILELog::setReportingLevel( logLevel );
+ 
+-    if ( ! filename.empty() ) {
+-        // Convert to absolute path
+-        QFileInfo file( QString::fromStdString( filename ) );
+-        filename = file.absoluteFilePath().toStdString();
+-    }
+-
+     // External communicator
+     shared_ptr<ExternalCommunicator> externalCommunicator = nullptr;
+     shared_ptr<ExternalInstance> externalInstance = nullptr;
