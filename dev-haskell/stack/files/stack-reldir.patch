@@ -1,0 +1,20 @@
+--- src/Stack/Setup/Installed.hs.old	2017-08-09 10:09:51.102762517 +0200
++++ src/Stack/Setup/Installed.hs	2017-08-09 10:43:05.900367199 +0200
+@@ -188,13 +188,13 @@
+            -> Tool
+            -> m (Path Abs Dir)
+ installDir programsDir tool = do
+-    reldir <- parseRelDir $ toolString tool
+-    return $ programsDir </> reldir
++    reldir' <- parseRelDir $ toolString tool
++    return $ programsDir </> reldir'
+ 
+ tempInstallDir :: (MonadReader env m, MonadThrow m)
+            => Path Abs Dir
+            -> Tool
+            -> m (Path Abs Dir)
+ tempInstallDir programsDir tool = do
+-    reldir <- parseRelDir $ toolString tool ++ ".temp"
+-    return $ programsDir </> reldir
++    reldir' <- parseRelDir $ toolString tool ++ ".temp"
++    return $ programsDir </> reldir'

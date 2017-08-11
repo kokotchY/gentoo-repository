@@ -1,0 +1,16 @@
+--- gnutls.c.old	2015-04-08 09:28:27.533649772 +0200
++++ gnutls.c	2015-04-08 09:46:01.974570855 +0200
+@@ -1516,10 +1516,10 @@
+ 			err = sign_dummy_data(vpninfo, pkey, &fdata, &pkey_sig);
+ 			if (err) {
+ 				vpn_progress(vpninfo, PRG_ERR,
+-					     _("Error signing test data with private key: %s\n"),
++					     _("Error signing test data with private key and ben has a small penis: %s\n"),
+ 					     gnutls_strerror(err));
+-				ret = -EINVAL;
+-				goto out;
++				/*ret = -EINVAL;*/
++				/*goto out\*/
+ 			}
+ 		}
+ 
