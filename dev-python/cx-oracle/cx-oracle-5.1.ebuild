@@ -2,13 +2,11 @@
 
 EAPI="5"
 
-PYTHON_MULTIPLE_ABIS="1"
-PYTHON_MODNAME="cx_Oracle"
 PYTHON_COMPAT=( python{2_7,3_4} )
 
 inherit distutils-r1
 
-MY_PN=$PYTHON_MODNAME
+MY_PN=cx_Oracle
 MY_P=${MY_PN}-${PV}
 DESCRIPTION="Python interface to Oracle"
 HOMEPAGE="http://www.cxtools.net/default.aspx?nav=cxorlb"
@@ -32,11 +30,11 @@ set_global_options() {
 	export ORACLE_HOME="/usr/lib64/oracle/${ORACLE_VERSION}/client"
 }
 
-distutils_src_compile_pre_hook() {
+distutils-r1_src_compile_pre_hook() {
 	set_global_options
 }
 
-distutils_src_install_pre_hook() {
+distutils-r1_src_install_pre_hook() {
 	set_global_options
 }
 
@@ -46,7 +44,7 @@ pkg_postinst() {
 }
 
 src_install() {
-	distutils_src_install
+	distutils-r1_src_install
 	if use doc; then
 		dohtml -r html/* || die
 	fi
