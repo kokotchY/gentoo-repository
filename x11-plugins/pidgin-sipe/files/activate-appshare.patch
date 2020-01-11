@@ -1,0 +1,13 @@
+--- old/configure	2018-11-10 17:53:02.000000000 +0100
++++ new/configure	2019-01-23 09:11:31.663352941 +0100
+@@ -14756,8 +14756,8 @@
+   enable_purple=yes
+ fi
+ 
+-ac_have_appshare=no
+-ac_have_appshare_server=no
++ac_have_appshare=yes
++ac_have_appshare_server=yes
+ ac_have_xdata=no
+ with_purple_vv=no
+ if test "x$enable_purple" != xno; then :
