@@ -1,0 +1,75 @@
+--- a/CMakeLists.txt	2021-04-10 13:21:16.000000000 +0200
++++ b/CMakeLists.txt	2021-04-10 13:22:58.000000000 +0200
+@@ -695,6 +695,7 @@
+ #
+ if(USE_STATIC_OPENZWAVE)
+   find_library(OpenZWave NAMES libopenzwave.a HINTS "../open-zwave-read-only" "../open-zwave-read-only/cpp/build")
++  find_path(OPENZWAVE_INCLUDE_DIRS NAMES OZWException.h HINTS "../open-zwave-read-only/cpp/src")
+   set(OPENZWAVE_LIB ${OpenZWave})
+ else()
+   pkg_check_modules(OPENZWAVE libopenzwave)
+@@ -708,13 +709,9 @@
+   message(STATUS "OpenZWave library found at: ${OpenZWave}")
+   target_link_libraries(domoticz ${OpenZWave})
+ 
+-  find_path(OPENZWAVE_INCLUDE_DIRS NAMES openzwave/Manager.h)
++  find_path(OPENZWAVE_INCLUDE_DIRS NAMES OZWException.h)
+   if (OPENZWAVE_INCLUDE_DIRS)
+-    IF(CMAKE_SYSTEM_NAME STREQUAL "FreeBSD")
+-      include_directories(${OPENZWAVE_INCLUDE_DIRS})
+-    ELSE()
+-      include_directories(${OPENZWAVE_INCLUDE_DIRS}/openzwave)
+-    ENDIF()
++    include_directories(${OPENZWAVE_INCLUDE_DIRS})
+     message(STATUS "OpenZWave includes found at: ${OPENZWAVE_INCLUDE_DIRS}")
+   else()
+     message(FATAL_ERROR "OpenZWave includes not found. Did you not issue 'sudo make install' after building OpenZWave?")
+--- a/hardware/OpenZWave.cpp	2021-04-10 13:23:11.000000000 +0200
++++ b/hardware/OpenZWave.cpp	2021-04-10 13:23:34.000000000 +0200
+@@ -22,10 +22,10 @@
+ #include "../main/localtime_r.h"
+ 
+ //OpenZWave includes
+-#include <openzwave/Options.h>
+-#include <openzwave/Manager.h>
+-#include <openzwave/platform/Log.h>
+-#include <openzwave/ValueIDIndexesDefines.h>
++#include <Options.h>
++#include <Manager.h>
++#include <platform/Log.h>
++#include <ValueIDIndexesDefines.h>
+ 
+ #include "ZWaveCommands.h"
+ 
+--- a/hardware/openzwave/control_panel/ozwcp.cpp	2021-04-10 13:23:52.000000000 +0200
++++ b/hardware/openzwave/control_panel/ozwcp.cpp	2021-04-10 13:24:07.000000000 +0200
+@@ -39,11 +39,11 @@
+ #include <stdlib.h>
+ #include <time.h>
+ #include <string.h>
+-#include <openzwave/Options.h>
+-#include <openzwave/Manager.h>
+-#include <openzwave/Node.h>
+-#include <openzwave/Group.h>
+-#include <openzwave/Notification.h>
++#include <Options.h>
++#include <Manager.h>
++#include <Node.h>
++#include <Group.h>
++#include <Notification.h>
+ #include "../../../main/Logger.h"
+ 
+ #include <sys/stat.h>
+--- a/hardware/openzwave/control_panel/ozwcp.h	2021-04-10 13:24:24.000000000 +0200
++++ b/hardware/openzwave/control_panel/ozwcp.h	2021-04-10 13:24:33.000000000 +0200
+@@ -38,8 +38,8 @@
+ 
+ #include <list>
+ #include <algorithm>
+-#include <openzwave/Driver.h>
+-#include <openzwave/Notification.h>
++#include <Driver.h>
++#include <Notification.h>
+ 
+ #define MAX_NODES 255
+ 
